@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 interface WebsiteLink {
@@ -14,6 +15,17 @@ interface Category {
 }
 
 const websiteData: Category[] = [
+  {
+    title: 'UI Components',
+    links: [
+      {
+        name: 'Card Examples',
+        url: '/card-examples',
+        description: 'Interactive card component demos',
+        icon: '🎴',
+      },
+    ],
+  },
   {
     title: 'Development Tools',
     links: [
@@ -256,22 +268,39 @@ function App() {
           <section key={category.title} className="category-section">
             <h2 className="category-title">{category.title}</h2>
             <div className="links-grid">
-              {category.links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-card"
-                >
-                  <div className="link-icon">{link.icon}</div>
-                  <div className="link-content">
-                    <h3 className="link-name">{link.name}</h3>
-                    <p className="link-description">{link.description}</p>
-                  </div>
-                  <div className="link-arrow">→</div>
-                </a>
-              ))}
+              {category.links.map((link) => {
+                const isInternalLink = link.url.startsWith('/');
+
+                if (isInternalLink) {
+                  return (
+                    <Link key={link.name} to={link.url} className="link-card">
+                      <div className="link-icon">{link.icon}</div>
+                      <div className="link-content">
+                        <h3 className="link-name">{link.name}</h3>
+                        <p className="link-description">{link.description}</p>
+                      </div>
+                      <div className="link-arrow">→</div>
+                    </Link>
+                  );
+                } else {
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-card"
+                    >
+                      <div className="link-icon">{link.icon}</div>
+                      <div className="link-content">
+                        <h3 className="link-name">{link.name}</h3>
+                        <p className="link-description">{link.description}</p>
+                      </div>
+                      <div className="link-arrow">→</div>
+                    </a>
+                  );
+                }
+              })}
             </div>
           </section>
         ))}
