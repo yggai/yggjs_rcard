@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm run type-check:*)",
+      "Bash(npm run lint)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run test:ci:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx ts-jest config:init:*)",
+      "Bash(cat:*)",
+      "Bash(npm run test:*)",
+      "Bash(sed:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run format:check:*)",
+      "Bash(npm audit:*)",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(npm run quality:check:*)",
+      "Bash(npm run check-all:*)",
+      "Bash(npm run format:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_close"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
